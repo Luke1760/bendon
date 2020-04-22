@@ -7,11 +7,7 @@ class UsersController < ApplicationController
       @user = User.new
   end
 
-  def registration
-    # user = params[:user]
-    # if user[:password] == user[:password_confirm]
-    #   redirect_to '/login'
-    if user_params[:password] == user_params[:password_confirm]
+    def registration
       @user = User.new(user_params)
       if @user.save
         # 成功
@@ -22,16 +18,13 @@ class UsersController < ApplicationController
         # 失敗
         render :sign_up
       end
-    else
-    redirect_to '/sign_up'
     end
-  end
 
   private
 
   def user_params
     params.require(:user).permit(:email,
                                  :password,
-                                 :password_confirm)
+                                 :password_confirmation)
   end
 end

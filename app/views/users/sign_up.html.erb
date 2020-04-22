@@ -3,6 +3,14 @@
 <%#= form_for(User.new, url: '/sign_up', method: 'POST') do |f| %>
 <%# 使用controller裡的@user取代User.new %>
 <%= form_for(@user, url: '/sign_up', method: 'POST') do |f|%>
+
+  <%= if @user.error.any? %>
+    <ul>
+      <% @user.errors.full.messages.each do | msg | %>
+        <li><%= msg %></li>
+    <% end %>
+    </ul>
+    <% end %>
   <div>
     <%= f.label :email %>
     <%= f.text_field :email %>
@@ -14,8 +22,8 @@
   </div>
 
   <div>
-    <%= f.label :password_confirm %>
-    <%= f.text_field :password_confirm %>
+    <%= f.label :password_confirmation %>
+    <%= f.text_field :password_confirmation %>
   </div>
 
   <%= f.submit '註冊' %>
