@@ -1,11 +1,14 @@
 <h1>使用者登入</h1>
+<%= form_for(@user, url: login_path, method: 'POST') do |f|%>
+  <div>
+    <%= f.label :email%>
+    <%= f.text_field :email%>
+  </div>
 
-<form action="#" method="POST">
-  email:
-  <input type="text" name="email">
+  <div>
+    <%= f.label :password%>
+    <%= f.text_field :password%>
+  </div>
 
-  password:
-  <input type="password" name="password">
-
-  <input type="submit" value="登入">
-</form>
+  <%= f.submit '登入'%>
+<% end %>
