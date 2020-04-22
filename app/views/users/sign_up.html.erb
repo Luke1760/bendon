@@ -1,0 +1,21 @@
+<h1>使用者註冊</h1>
+
+<%= form_for(User.new, url: '/sign_up', method: 'Post') do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirm %>
+    <%= f.text_field :password_confirm %>
+  </div>
+
+  <%= f.submit '註冊' %>
+
+  <% end %>
